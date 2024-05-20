@@ -26,8 +26,9 @@ public class GETAPICall {
         playwright = Playwright.create();
         request = playwright.request();
         requestContext = request.newContext();
-        apiResponse =  requestContext.get("https://gorest.co.in/public/v2/users");
+        apiResponse = requestContext.get("https://gorest.co.in/public/v2/users");
     }
+
     @Test
     public void getUsersAPITest() throws IOException {
         int status = apiResponse.status();
@@ -36,7 +37,7 @@ public class GETAPICall {
 
         //Show response body json
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonResponse =  objectMapper.readTree(apiResponse.body());
+        JsonNode jsonResponse = objectMapper.readTree(apiResponse.body());
 //        System.out.println(jsonResponse.toPrettyString());
         System.out.println(apiResponse.text());
 //        jsonResponse.toPrettyString();
@@ -48,10 +49,10 @@ public class GETAPICall {
 
     @Test
     public void getSpecificUserApiTest() {
-        apiResponse =  requestContext.get("https://gorest.co.in/public/v2/users", RequestOptions.create()
+        apiResponse = requestContext.get("https://gorest.co.in/public/v2/users", RequestOptions.create()
                 .setQueryParam("status", "active")
                 .setQueryParam("gender", "male"));
-        int     statusCode = apiResponse.status();
+        int statusCode = apiResponse.status();
         Assert.assertEquals(statusCode, 200);
     }
 
