@@ -1,4 +1,4 @@
-package com.qa.api.tests;
+package com.qa.api.tests.POST;
 
 import com.api.data.Users;
 import com.fasterxml.jackson.databind.ObjectMapper;

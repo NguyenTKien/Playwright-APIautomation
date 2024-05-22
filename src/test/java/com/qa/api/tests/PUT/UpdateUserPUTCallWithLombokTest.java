@@ -1,4 +1,4 @@
-package com.qa.api.tests;
+package com.qa.api.tests.PUT;
 
 import com.api.data.Users_Lombok;
 import com.fasterxml.jackson.databind.ObjectMapper;
