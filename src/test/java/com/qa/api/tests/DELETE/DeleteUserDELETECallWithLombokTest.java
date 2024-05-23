@@ -62,14 +62,14 @@ public class DeleteUserDELETECallWithLombokTest {
         String userID = responseUser.getId();
 
         //Delete User DELETE Call
-        APIResponse apiPUTCall = requestContext.delete("https://gorest.co.in/public/v2/users/" + userID,
+        APIResponse apiDELETECall = requestContext.delete("https://gorest.co.in/public/v2/users/" + userID,
                 RequestOptions.create()
                         .setHeader("Content-Type", "application/json")
                         .setHeader("Authorization", BearerToken)
                         .setData(users));
 
-        System.out.println(apiPUTCall.text());
-        Assert.assertEquals(apiPUTCall.status(), 204);
+        System.out.println(apiDELETECall.text());
+        Assert.assertEquals(apiDELETECall.status(), 204);
 
         //Get user Call
         APIResponse apiGetCall = requestContext.get("https://gorest.co.in/public/v2/users/" + userID,
